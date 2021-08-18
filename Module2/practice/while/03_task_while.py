@@ -9,4 +9,12 @@
 # 123
 # 1234
 
-# TODO: your code here
+n = int(input("n: "))
+i = 1
+while i <= n:
+    k = 1
+    while k <= i:
+        print(k, end = "")
+        k += 1
+    print(sep='\n')
+    i +=1
