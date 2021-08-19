@@ -16,5 +16,16 @@
  #
 # #
 
+a = int(input("a (2<a<=30): "))
+i = 0
 
-# TODO: your code here
+while i < a:
+    k = 0
+    while k < a:
+        if k == i or k == a-1-i:
+            print("#", end = "")
+        else:
+            print(" ", end = "")
+        k += 1
+    print(sep='\n')
+    i += 1
