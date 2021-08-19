@@ -32,14 +32,53 @@ items = [
     },
 ]
 # Найдите:
-print("Товары на складе представлены брэндами: ")
 
-# TODO: your code here
+i = 0
+Brand = []
+while i < 6:
+    Brand.append(dict(items[i])['brand'])
+    i += 1
+    
+# Получили список брэндов с повторами в Brand
 
-print("На складе больше всего товаров брэнда(ов): ")
+Brand_1 = list(set(Brand))  # список брэндов без повторов
 
-# TODO: your code here
+print("Товары на складе представлены брэндами: ", *Brand_1)
 
-print("На складе самый дорогой товар брэнда(ов): ")
+length = len(Brand_1)  # сколько брендов
+number = []
 
-# TODO: your code here
+i = 0
+while i < length:
+    m = Brand.count(Brand_1[i])
+    number.append(m)
+    i += 1
+    
+# number - список количеств каждого бренда
+
+number_big = max(number)
+big = []
+i = 0
+while i < length:
+    if number[i] == number_big:
+        big.append(Brand_1[i])
+        i += 1
+        
+# big - список максимальных брендов
+
+print("На складе больше всего товаров брэнда(ов): ", *big)
+
+
+i = 0
+Price = []
+while i < 6:
+    Price.append(dict(items[i])['price'])
+    i += 1
+
+i = 0
+while i < 6:
+    if Price[i] == max(Price):
+        num_max = i
+    i += 1
+    
+print("На складе самый дорогой товар брэнда(ов): ", Brand[num_max], max(Price))
