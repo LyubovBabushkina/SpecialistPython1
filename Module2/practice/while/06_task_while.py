@@ -16,4 +16,24 @@
 # 220 284
 # 284 220
 
-# TODO: your code here
+N = 10000
+n = 4
+
+while n < N:
+    s = 1
+    i = 2
+    while i <= n / 2:
+        if n % i == 0:
+            s += i
+        i += 1
+
+    k = s
+    s = 1
+    i = 2
+    while i <= k / 2 and N > k > n:
+        if k % i == 0:
+            s += i
+        i += 1
+    if s == n:
+        print(n, k)
+    n += 1
