@@ -9,11 +9,20 @@
 path = "dir/limericks.txt"  # вместо dir подставь название папки с файлом.
 # Или удалите dir, если limericks.txt в тойже папке что и текущий файл
 
-# Открываем файл на чтение
-f = open(path, "r")
+f = open(path, "r", encoding="utf-8")
 # В переменную line считываем строку за стройкой из файла(f)
+summ = 0
 for line in f:
-    ...
+    line = line.rstrip()  # Удаляет все пробельные символы в конце - пробел, символ переноса, символ табуляции и т.п.
+    print("line = ", line)
+    summ += len(line.replace(" ", "")) - line.count("\n") - line.count("\t")
 
-# Подсказка: пустые строки выглядят так "\n". Помните? Строка считывается вместе с символом переноса!
-# Применение метода "\n".rstrip() --> "" вернет вам пустую строку, строку из НУЛЯ символов.
+print(summ)
+
+f = open(path, "r", encoding="utf-8")
+poem = 1
+for line in f:
+    if line == "\n":
+        poem += 1
+
+print(poem)
